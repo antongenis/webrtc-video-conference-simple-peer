@@ -17,6 +17,11 @@ const port = process.env.PORT || 3012
 
 ////////////////////////////
 
+
+// Have Node serve the files for our built React app
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+
 require('./routes')(app)
 
 const httpsServer = httpolyglot.createServer(options, app)
@@ -44,6 +49,16 @@ app.use('/gallery', require('node-gallery')({
     return res.send(req.html);
   });
 */
+
+app.get("/api", (req, res) => {
+    res.json({ message: "Hello from server!" });
+  });
+  
+  // All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+
 
 httpsServer.listen(port, () => {
     console.log(`listening on port ${port}`)

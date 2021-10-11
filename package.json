@@ -12,9 +12,13 @@
     "socket.io": "^2.4.0"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "v14.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "node src/app.js",    
+    "build": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC"
