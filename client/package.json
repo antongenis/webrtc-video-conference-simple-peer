@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3012",
   "dependencies": {
+    "web-vitals": "2.1.1",
     "cra-template": "1.1.2",
     "express": "^4.17.1",
     "react": "^17.0.2",
